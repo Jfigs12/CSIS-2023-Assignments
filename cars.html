@@ -1,0 +1,61 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>Page Title</title>
+<script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="error-message" style= "color:red"></div>
+    <form action = "https://www.jwuclasses.com/csis2023/assignment2/test.php" method = "post" >
+        <label for = "name"> name </label>
+        <input type = "text" id = "name" name = "name" required>
+        
+        <br><br>
+
+        <label for = "vehicle_manufacturer"> Vehicle_manufacturer:</label>
+        <select id =  "vehicle_manufacturer" name = "vehicle_manufacturer">
+            <option value = "Choose_Value" >Choose_Value</option>
+            <option value = "Subaru">Subaru</option>
+            <option value = "Honda">Honda</option>
+            <option value = "Tesla">Tesla</option>
+        </select>
+
+
+        <br><br>
+
+
+        <label for = "Transmission_type">Transmission_type:</label>
+        <input type="radio" id="automatic" name="transmission_type" value="Automatic">
+        <label for = "automatic">Automatic</label>
+        <input type="radio" id="manual" name="transmission_type" value="Manual">
+        <label for = "manual">Manual</label>
+
+        <br><br>
+
+        <label for = "runs">Runs:</label>
+        <input type = "checkbox" id = "runs" name = "runs" value = "1">
+        <br><br>
+
+        <input type = "submit" value = "submit">
+
+
+    </form>
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(event){
+                let blank = true;
+                if ($('#vehicle_manufacturer').val() == "Choose_Value" || !$('input[name="transmission_type"]:checked').val()) {
+                    blank = false;
+                   
+                }
+                if(blank == false){
+                    $('#error-message').text('Please fill out all fields');
+                    event.preventDefault();
+                }
+                
+            });
+        })
+    </script>
+
+</body>
+</html>
