@@ -44,6 +44,7 @@
     <script>
         $(document).ready(function(){
             $('form').submit(function(event){
+                return true;
                 let blank = true;
                 if ($('#vehicle_manufacturer').val() == "Choose_Value" || !$('input[name="transmission_type"]:checked').val()) {
                     blank = false;
